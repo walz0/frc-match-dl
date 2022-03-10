@@ -23,5 +23,27 @@ def api(query):
     res = requests.get("https://www.thebluealliance.com/api/v3" + query, headers=headers)
     return res.json()
 
-# print(api("/event/2022inkok/matches"))
-# submitVideo("2022inkok_sf1m2", "https://www.youtube.com/watch?v=h4grd3i8YfU")
+def getMatchKeys(event_key):
+    return api("/event/" + event_key + "/matches/keys")
+
+def getEvent(event_key):
+    return api("/event/" + event_key)
+
+def getTitle(event_key, match_key):
+    event = getEvent(event_key)
+    name = event["name"]
+    # Isolate the match slug from the match key
+    slug = match_key[len(event_key) + 1:]
+    # Qualification Match
+    if slug[:2] == "qm":
+        name += " - Qualification " + slug[2:]
+    # Quarterfinal
+    elif slug[:2] == "qf":
+        name += " - Quarterfinal " + slug[2] + " Match " + slug[-1:]
+    # Semifinal
+    elif slug[:2] == "sf":
+        name += " - Semifinal " + slug[2] + " Match " + slug[-1:]
+    # Final
+    elif slug[0] == "f":
+        name += " - Final " + slug[1] + " Match " + slug[-1:]
+    return name
