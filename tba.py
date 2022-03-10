@@ -1,5 +1,6 @@
 import requests
 import urllib.parse
+from match import Match
 
 TBA_API_KEY = "Z37IOn5LR76k6oZX42Yj6qktALW6DNd1aoQMeUSGzf1EEq1Cf2yX9jJcjiiKGIDx"
 
@@ -34,16 +35,5 @@ def getTitle(event_key, match_key):
     name = event["name"]
     # Isolate the match slug from the match key
     slug = match_key[len(event_key) + 1:]
-    # Qualification Match
-    if slug[:2] == "qm":
-        name += " - Qualification " + slug[2:]
-    # Quarterfinal
-    elif slug[:2] == "qf":
-        name += " - Quarterfinal " + slug[2] + " Match " + slug[-1:]
-    # Semifinal
-    elif slug[:2] == "sf":
-        name += " - Semifinal " + slug[2] + " Match " + slug[-1:]
-    # Final
-    elif slug[0] == "f":
-        name += " - Final " + slug[1] + " Match " + slug[-1:]
+    name += " - " + Match.getName(slug)
     return name
