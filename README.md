@@ -6,7 +6,7 @@ A tool for easily downloading and processing FRC clips from twitch vods
 - twitch-dl
 - ffmpeg
 
-[ffmpeg](https://www.ffmpeg.org/download.html) must be installed and in your PATH for this to work, twitch-dl will throw an error if you don't.
+[ffmpeg](https://www.ffmpeg.org/download.html) must be installed and in your PATH for this to work, twitch-dl will throw an error if it isn't.
 
 [twitch-dl](https://github.com/ihabunek/twitch-dl) can be installed with the python command:
 ```
@@ -37,8 +37,9 @@ Final
 ```
 
 # Usage
-Enter all match keys and timestamps in the matches.txt file. You should omit the event key (2022inkok in this case) when entering your matches.
-Your file should look something like this:
+Enter all match keys and timestamps in the ```matches.txt``` file. You should omit the event key (e.g. ```2022inkok_qm34``` would be just ```qm34```) when entering your matches.
+
+Example:
 ```
 qm1
 01:24:04
