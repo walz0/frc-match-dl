@@ -4,7 +4,7 @@ class Match:
         self.timestamp = timestamp # Timestamp of the start of the match from twitch vod
         pass
 
-    def __repr__(self):
+    def __str__(self):
         if self.slug[:2] == "qm":
             return "Qualification " + self.slug[2:]
         # Quarterfinal
@@ -20,4 +20,10 @@ class Match:
 
     def getName(slug):
         match = Match(slug, "")
-        return match.__repr__()
+        return match.__str__()
+
+class Playlist:
+    def __init__(self, matches, video_id) -> None:
+        self.matches = matches
+        self.video_id = video_id
+        pass

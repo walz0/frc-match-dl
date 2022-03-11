@@ -23,13 +23,18 @@ Here is a Blue Alliance match key for example:
 The Blue Alliance uses the event key as a prefix for each match key followed by an identifier for what
 type of match was played.
 
+Here is a Blue Alliance event key for the 2022 FIN District Kokomo Event:
 ```
-The empty brackets are a placeholder for the match numbers
+2022inkok
+```
+
+```
+# The empty brackets are a placeholder for match numbers
 
 Qualification Match
 - qm[] e.g. qm34
 Quarterfinal
-- qf[]m[] e.g. qf1m2
+- qf[]m[] e.g. qf1m3
 Semifinal
 - sf[]m[] e.g. sf2m1
 Final
