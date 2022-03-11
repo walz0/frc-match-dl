@@ -10,7 +10,8 @@ matchData = util.readInput()
 playlists = util.parseMatches(matchData)
 
 for playlist in playlists:
-    title = tba.getEvent("2022inkok")["name"]
+    event_key = "2022inkok"
+    title = tba.getEvent(event_key)["name"]
     output_path = "./output/" + playlist.video_id + "/"
 
     if not os.path.exists(output_path):
