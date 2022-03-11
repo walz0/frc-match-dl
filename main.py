@@ -9,16 +9,19 @@ from twitchdl.commands import download
 matchData = util.readInput()
 playlists = util.parseMatches(matchData)
 
-print(playlists)
-# for playlist in playlists:
-#     title = tba.getEvent("2022inkok")["name"]
-#     output_path = "./output/"
+for playlist in playlists:
+    title = tba.getEvent("2022inkok")["name"]
+    output_path = "./output/" + playlist.video_id + "/"
 
-#     for match in playlist.matches:
-#         vod = download(
-#             Video(
-#                 video_id=match.video_id,
-#                 start=match.start,
-#                 output=output_path + title + " - " + match.__str__() + ".mp4"
-#             )
-#         )
+    if not os.path.exists(output_path):
+        os.makedirs(output_path, exist_ok=True)
+
+    for match in playlist.matches:
+        print(match.slug)
+        vod = download(
+            Video(
+                video_id=playlist.video_id,
+                start=match.timestamp,
+                output=output_path + title + " - " + match.__str__() + ".mp4"
+            )
+        )
