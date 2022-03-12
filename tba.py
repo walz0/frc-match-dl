@@ -30,6 +30,9 @@ def getMatchKeys(event_key):
 def getEvent(event_key):
     return api("/event/" + event_key)
 
+def isEventKey(event_key):
+    return True if not "Error" in getEvent(event_key) else False 
+
 def getTitle(event_key, match_key):
     event = getEvent(event_key)
     name = event["name"]

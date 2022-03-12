@@ -1,17 +1,17 @@
 import os
+import sys
 import tba
 import util
 from video import Video
 from match import Match, Playlist
 from twitchdl.commands import download
 
-if __name__ == "__main__":
+def downloadMatches(event_key):
     # Read raw match data
     matchData = util.readInput()
     playlists = util.parseMatches(matchData)
 
     for playlist in playlists:
-        event_key = "2022inkok"
         title = tba.getEvent(event_key)["name"]
         output_path = "./output/" + playlist.video_id + "/"
 
