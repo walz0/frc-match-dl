@@ -15,18 +15,13 @@ def parseMatches(data):
     # Group match playlists
     playlists = []
     for _ in range(len(ids)):
+        # Group match keys and timestamps into pairs
         if _ != len(ids) - 1:
-            # Group match keys and timestamps into pairs
             pairs = list(zip(*(iter(lines[ids[_]+1:ids[_ + 1]]),) * 2))
-            # Convert pairs to Match objects
-            matches = list(map(lambda x : Match(slug=x[0], timestamp=x[1]), pairs))
-            video_id = lines[_][1:-1]
-            playlists += [Playlist(matches, video_id)]
         else:
-            # Group match keys and timestamps into pairs
             pairs = list(zip(*(iter(lines[ids[_]+1:]),) * 2))
-            # Convert pairs to Match objects
-            matches = list(map(lambda x : Match(slug=x[0], timestamp=x[1]), pairs))
-            video_id = lines[_][1:-1]
-            playlists += [Playlist(matches, video_id)]
+        # Convert pairs to Match objects
+        matches = list(map(lambda x : Match(slug=x[0], timestamp=x[1]), pairs))
+        video_id = lines[_][1:-1]
+        playlists += [Playlist(matches, video_id)]
     return playlists
