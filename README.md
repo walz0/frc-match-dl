@@ -1,5 +1,5 @@
 # frc-match-dl
-A tool for easily downloading and processing FRC clips from twitch vods
+A tool for easily downloading and processing FRC matches from twitch vods
 
 # Pre-Requisites
 - Python 3
