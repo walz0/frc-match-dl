@@ -20,18 +20,17 @@ submit - submits youtube URLs to The Blue Alliance website for given matches""")
 
     if args.action:
         if args.action == "download":
-
+            if args.output:
+                # Check if path exists
+                if not os.path.exists(args.output):
+                    print("Error: output path does not exist")
+                    return
+            if args.event:
+                # Check if event key exists
+                if tba.isEventKey(args.event):
+                    downloadMatches(args.event)
+                else:
+                    print("Error: event key does not exist")
+                    return
         if args.action == "submit":
-
-    if args.output:
-        # Check if path exists
-        if not os.path.exists(args.output):
-            print("Error: output path does not exist")
-            return
-    if args.event:
-        # Check if event key exists
-        if tba.isEventKey(args.event):
-            downloadMatches(args.event)
-        else:
-            print("Error: event key does not exist")
-            return
+            pass
