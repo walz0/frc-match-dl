@@ -8,7 +8,7 @@ from twitchdl.commands import download
 
 def downloadMatches(event_key):
     # Read raw match data
-    matchData = util.readMatchInput()
+    matchData = util.readInput()
     playlists = util.parseMatches(matchData)
 
     for playlist in playlists:

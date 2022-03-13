@@ -9,4 +9,4 @@ def submitMatches(event_key):
 
     for url in urls:
         print("Submitting", Match.getName(url["slug"]), "at", url["url"])
-        tba.submitVideo(event_key + "_" + url["slug"], url["url"])
+        tba.submitVideo(event_key + "_" + url["slug"])

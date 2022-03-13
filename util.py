@@ -1,9 +1,14 @@
 from match import Match, Playlist
 
-def readInput():
+def readMatchInput():
     with open("./matches.txt", "r") as matches:
         # Remove leading / trailing whitespace and newlines
         return matches.read().strip()
+
+def readURLInput():
+    with open("./urls.txt", "r") as urls:
+        # Remove leading / trailing whitespace and newlines
+        return urls.read().strip()
 
 def parseMatches(data):
     lines = data.split("\n")
@@ -25,3 +30,9 @@ def parseMatches(data):
         video_id = lines[ids[_]][1:-1]
         playlists += [Playlist(matches, video_id)]
     return playlists
+
+def parseURLs(data):
+    lines = data.split("\n")
+    pairs = list(zip(*(iter(lines),) * 2))
+    urls = list(map(lambda x: {"slug":x[0], "url": x[1]}, pairs))
+    return urls
