@@ -8,7 +8,7 @@ A tool for easily downloading and processing FRC matches from twitch vods
 
 [ffmpeg](https://www.ffmpeg.org/download.html) must be installed and in your PATH for this to work, twitch-dl will throw an error if it isn't.
 
-[twitch-dl](https://github.com/ihabunek/twitch-dl) can be installed with the python command:
+[twitch-dl](https://github.com/ihabunek/twitch-dl) can be installed with pip:
 ```
 pip install twitch-dl
 ```
