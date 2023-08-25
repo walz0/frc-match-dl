@@ -43,9 +43,10 @@ Final
 
 # Usage
 Enter all match keys and timestamps in the ```matches.txt``` file. You should omit the event key (e.g. ```2022inkok_qm34``` would be just ```qm34```) when entering your matches.
-
+You will need to specify which twitch VOD these matches should be pulled from by putting the VOD id in brackets at the beginning of your match list (e.g. ```[1417226844]```).
 Example:
 ```
+[1417226844]
 qm1
 01:24:04
 qm6
